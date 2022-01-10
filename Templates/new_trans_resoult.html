@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block body_content %}
+  
+    <h1>Rekord dodany</h1> <br>
+    <p> Data transakcji: {{ date_trans }}</p>
+    <p> 
+      Budżet: {{ budget }}</p>
+    <p> Kryptowaluta: {{ currency }}</p>
+    <p> Ilość: {{ amount }}</p>
+    <p> Po kursie: {{ course }}</p>
+    <p> Koszty operacji: {{ cost }}</p>
+    <p> Typ operacji: {{ type }}</p>
+
+{% endblock %}

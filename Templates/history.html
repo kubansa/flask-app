@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Transkacje historia
+{% endblock %}
+
+{% block body_content %}
+
+{% for message in get_flashed_messages() %}
+<div>{{ message }}</div>
+{% endfor %}
+
+<div class="container">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Data transakcji</th>
+            <th scope="col">Wartość zakupu PLN</th>
+            <th scope="col">Waluta</th>
+            <th scope="col">Ilość waluty</th>
+            <th scope="col">Kurs waluty</th>
+            <th scope="col">Koszty operacji</th>
+            <th scope="col">Typ operacji</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for transakcja in transakcje %}
+          <tr>
+            <th scope="row">{{ transakcja.id }}</th>
+            <td>{{ transakcja.date_trans }}</td>
+            <td>{{ transakcja.budget }}</td>
+            <td>{{ transakcja.currency }}</td>
+            <td>{{ transakcja.amount }}</td>
+            <td>{{ transakcja.course }}</td>
+            <td>{{ transakcja.cost }}</td>
+            <td>{{ transakcja.type }}</td>
+          </tr>
+           {% endfor %}
+        </tbody>
+      </table>
+</div>
+
+
+{% endblock %}

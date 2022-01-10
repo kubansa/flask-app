@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block body_content %}
+
+{% for message in get_flashed_messages() %}
+    <div>{{ message }}</div>
+{% endfor %}
+
+    <div class="container">
+        <h2>Nowa transakcja zakupowa</h2>
+        <p>Podaj szczegóły zakupu</p>
+        
+        <form id="new_trans_form" action = "{{ url_for('new_trans_resoult') }}" method="POST">
+            <div class="row gy-2 gx-3 align-items-center">
+                <div class="col-sm-4">
+                  <input type="date" class="form-control" placeholder="Data transakcji" aria-label="date_trans" name="date_trans" >
+                </div>
+                
+                <div class="col-sm-4">
+                  <input type="float" class="form-control" placeholder="zakup PLN" aria-label="budget" name="budget">
+                </div>
+                
+                <div class="col-sm-4">
+                    <select class="form-select" aria-label="Kryptowaluta" name="currency">
+                        <option selected>Wybierz</option>
+                        <option value="BTC">BTC</option>
+                        <option value="ETH">ETH</option>
+                        <option value="DOT">DOT</option>
+                        <option value="XRP">XRP</option>
+                        <option value="ADA">ADA</option>
+                        <option value="OMG">OMG</option>
+                        <option value="LINK">LINK</option>
+                      </select>
+                </div>
+                
+                <div class="col-sm-4">
+                    <input type="float" class="form-control" placeholder="Ilość" aria-label="amount" name="amount">
+                </div>
+                
+                <div class="col-sm-4">
+                    <input type="float" class="form-control" placeholder="Kurs" aria-label="course" name="course">
+                </div>
+                
+                <div class="col-sm-4">
+                    <input type="float" class="form-control" placeholder="Koszty operacji" aria-label="cost" name="cost">
+                </div>
+                
+                <div class="col-sm-12">
+                    <select class="form-select" aria-label="Typ operacji" name="type">
+                        <option selected>Typ operacji</option>
+                        <option value="buy">zakup</option>
+                        <option value="sales">sprzedaż</option>
+                      </select>
+                </div> 
+            </div>
+                <div class="col-sm-2 mb-1"></div>
+                    <button type="submit" class="btn btn-primary">Dodaj</button>
+                </div>
+              
+        </form>
+
+    </div>
+
+{% endblock %}
