@@ -86,7 +86,7 @@ def history():
     return render_template('history.html' , transakcje = transakcje)
 
 
-
+# dodałem komnentarz
 
 
 if __name__ == '__main__':
