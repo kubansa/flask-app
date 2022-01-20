@@ -1,5 +1,6 @@
 from flask import Flask, render_template, g, request, url_for, flash
 import sqlite3
+import flasksqlalchemy from sqlalchemy
 
 app_info = {
 'db_file' : 'c:/PythonScripts/sqllitedata/cantor.db' 
@@ -85,8 +86,6 @@ def history():
 
     return render_template('history.html' , transakcje = transakcje)
 
-
-# dodałem komnentarz
 
 
 if __name__ == '__main__':
